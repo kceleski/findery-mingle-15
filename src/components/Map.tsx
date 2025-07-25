@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -24,26 +23,28 @@ const Map: React.FC<MapProps> = ({
   zoom = 13 
 }) => {
   return (
-    <MapContainer
-      center={center}
-      zoom={zoom}
-      className="h-full w-full"
-      scrollWheelZoom={false}
-      zoomControl={false}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      <Marker position={center}>
-        <Popup>
-          <div className="text-center">
-            <p className="font-semibold">Business Location</p>
-            <p className="text-sm">New York, NY</p>
-          </div>
-        </Popup>
-      </Marker>
-    </MapContainer>
+    <div className="h-full w-full">
+      <MapContainer
+        center={center}
+        zoom={zoom}
+        style={{ height: '100%', width: '100%' }}
+        scrollWheelZoom={false}
+        zoomControl={false}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={center}>
+          <Popup>
+            <div className="text-center">
+              <p className="font-semibold">Senior Care Location</p>
+              <p className="text-sm">Providing quality care</p>
+            </div>
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </div>
   );
 };
 
