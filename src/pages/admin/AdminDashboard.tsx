@@ -11,31 +11,31 @@ import {
 } from 'lucide-react';
 
 const AdminDashboard = () => {
-  const [activeBusinesses, setActiveBusinesses] = useState(1247);
+  const [activeFacilities, setActiveFacilities] = useState(247);
   const [totalRevenue, setTotalRevenue] = useState(89540);
   const [monthlyGrowth, setMonthlyGrowth] = useState(12.5);
 
   const stats = [
-    { title: 'Active Businesses', value: activeBusinesses, icon: Building, trend: '+8%' },
+    { title: 'Active Care Facilities', value: activeFacilities, icon: Building, trend: '+8%' },
     { title: 'Monthly Revenue', value: `$${totalRevenue.toLocaleString()}`, icon: DollarSign, trend: '+15%' },
-    { title: 'New Users', value: '2,847', icon: Users, trend: '+22%' },
-    { title: 'Growth Rate', value: `${monthlyGrowth}%`, icon: TrendingUp, trend: '+5%' }
+    { title: 'New Families', value: '847', icon: Users, trend: '+22%' },
+    { title: 'Quality Score Avg', value: '4.2/5', icon: TrendingUp, trend: '+0.3' }
   ];
 
   const categoryToggles = [
-    { name: 'Restaurants', enabled: true, count: 324 },
-    { name: 'Beauty & Wellness', enabled: true, count: 189 },
-    { name: 'Healthcare', enabled: true, count: 256 },
-    { name: 'Fitness', enabled: true, count: 143 },
-    { name: 'Retail', enabled: false, count: 278 },
-    { name: 'Automotive', enabled: true, count: 95 }
+    { name: 'Assisted Living', enabled: true, count: 84 },
+    { name: 'Memory Care', enabled: true, count: 52 },
+    { name: 'Skilled Nursing', enabled: true, count: 67 },
+    { name: 'Independent Living', enabled: true, count: 31 },
+    { name: 'Home Health', enabled: true, count: 28 },
+    { name: 'Hospice Care', enabled: true, count: 15 }
   ];
 
-  const recentBusinesses = [
-    { name: 'Golden Spoon Restaurant', category: 'Restaurant', status: 'pending', revenue: 2450 },
-    { name: 'Zen Spa & Wellness', category: 'Beauty', status: 'approved', revenue: 1890 },
-    { name: 'TechFix Solutions', category: 'Services', status: 'approved', revenue: 3200 },
-    { name: 'FreshMart Grocery', category: 'Retail', status: 'pending', revenue: 1650 }
+  const recentFacilities = [
+    { name: 'Sunrise Senior Living', category: 'Assisted Living', status: 'approved', qualityScore: 4.8 },
+    { name: 'Memory Gardens Care', category: 'Memory Care', status: 'pending', qualityScore: 4.2 },
+    { name: 'Comfort Home Health', category: 'Home Health', status: 'approved', qualityScore: 4.6 },
+    { name: 'Peaceful Manor Nursing', category: 'Skilled Nursing', status: 'review', qualityScore: 3.9 }
   ];
 
   return (
@@ -45,8 +45,8 @@ const AdminDashboard = () => {
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-                <p className="text-gray-600">Manage your business directory platform</p>
+                <h1 className="text-2xl font-bold text-gray-900">Senior Care Admin Dashboard</h1>
+                <p className="text-gray-600">Manage senior care facilities and quality oversight</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Button variant="outline" size="sm">
@@ -68,8 +68,8 @@ const AdminDashboard = () => {
           <Tabs defaultValue="overview" className="space-y-6">
             <TabsList className="bg-white">
               <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="businesses">Businesses</TabsTrigger>
-              <TabsTrigger value="categories">Categories</TabsTrigger>
+              <TabsTrigger value="businesses">Care Facilities</TabsTrigger>
+              <TabsTrigger value="categories">Care Types</TabsTrigger>
               <TabsTrigger value="revenue">Revenue</TabsTrigger>
               <TabsTrigger value="users">Users</TabsTrigger>
               <TabsTrigger value="settings">Settings</TabsTrigger>
@@ -96,23 +96,23 @@ const AdminDashboard = () => {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card>
+                  <Card>
                   <CardHeader>
-                    <CardTitle>Recent Business Applications</CardTitle>
+                    <CardTitle>Recent Facility Applications</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {recentBusinesses.map((business, index) => (
+                      {recentFacilities.map((facility, index) => (
                         <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                           <div>
-                            <p className="font-medium">{business.name}</p>
-                            <p className="text-sm text-gray-600">{business.category}</p>
+                            <p className="font-medium">{facility.name}</p>
+                            <p className="text-sm text-gray-600">{facility.category}</p>
                           </div>
                           <div className="flex items-center space-x-3">
-                            <Badge variant={business.status === 'approved' ? 'default' : 'secondary'}>
-                              {business.status}
+                            <Badge variant={facility.status === 'approved' ? 'default' : 'secondary'}>
+                              {facility.status}
                             </Badge>
-                            <span className="text-sm font-medium">${business.revenue}</span>
+                            <span className="text-sm font-medium">Score: {facility.qualityScore}</span>
                           </div>
                         </div>
                       ))}
@@ -122,7 +122,7 @@ const AdminDashboard = () => {
 
                 <Card>
                   <CardHeader>
-                    <CardTitle>Category Performance</CardTitle>
+                    <CardTitle>Care Type Performance</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -133,7 +133,7 @@ const AdminDashboard = () => {
                             <span className="font-medium">{category.name}</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <span className="text-sm text-gray-600">{category.count} businesses</span>
+                            <span className="text-sm text-gray-600">{category.count} facilities</span>
                             <Button variant="ghost" size="sm">
                               <ToggleLeft className="h-4 w-4" />
                             </Button>
@@ -149,7 +149,7 @@ const AdminDashboard = () => {
             <TabsContent value="businesses" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Business Management</CardTitle>
+                  <CardTitle>Care Facility Management</CardTitle>
                   <div className="flex space-x-2">
                     <Button size="sm">Approve Pending</Button>
                     <Button variant="outline" size="sm">Export Data</Button>
@@ -157,24 +157,24 @@ const AdminDashboard = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {recentBusinesses.map((business, index) => (
+                    {recentFacilities.map((facility, index) => (
                       <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
                         <div className="flex items-center space-x-4">
                           <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
                             <Building className="h-6 w-6 text-gray-600" />
                           </div>
                           <div>
-                            <p className="font-medium">{business.name}</p>
-                            <p className="text-sm text-gray-600">{business.category}</p>
+                            <p className="font-medium">{facility.name}</p>
+                            <p className="text-sm text-gray-600">{facility.category}</p>
                             <div className="flex items-center space-x-2 mt-1">
                               <Star className="h-4 w-4 text-yellow-400" fill="currentColor" />
-                              <span className="text-sm">4.8 (127 reviews)</span>
+                              <span className="text-sm">Quality Score: {facility.qualityScore}</span>
                             </div>
                           </div>
                         </div>
                         <div className="flex items-center space-x-3">
-                          <Badge variant={business.status === 'approved' ? 'default' : 'secondary'}>
-                            {business.status}
+                          <Badge variant={facility.status === 'approved' ? 'default' : 'secondary'}>
+                            {facility.status}
                           </Badge>
                           <Button variant="outline" size="sm">View</Button>
                           <Button size="sm">Edit</Button>
@@ -189,8 +189,8 @@ const AdminDashboard = () => {
             <TabsContent value="categories" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Category Management</CardTitle>
-                  <p className="text-gray-600">Enable or disable business categories and manage their features</p>
+                  <CardTitle>Care Type Management</CardTitle>
+                  <p className="text-gray-600">Enable or disable care facility types and manage their compliance requirements</p>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -202,7 +202,7 @@ const AdminDashboard = () => {
                             {category.enabled ? 'Active' : 'Disabled'}
                           </Badge>
                         </div>
-                        <p className="text-sm text-gray-600 mb-3">{category.count} businesses</p>
+                        <p className="text-sm text-gray-600 mb-3">{category.count} facilities</p>
                         <div className="flex space-x-2">
                           <Button 
                             variant={category.enabled ? 'destructive' : 'default'} 

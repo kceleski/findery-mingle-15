@@ -11,73 +11,73 @@ import {
 const CommercialFeatures = () => {
   const features = [
     {
-      icon: DollarSign,
-      title: 'Revenue Optimization',
-      description: 'Maximize your earnings with our advanced pricing and promotion tools',
-      benefits: ['Dynamic pricing suggestions', 'Seasonal promotions', 'Revenue analytics']
+      icon: Shield,
+      title: 'Quality Assurance',
+      description: 'Comprehensive quality scoring and licensing verification for every facility',
+      benefits: ['Multi-dimensional quality scores', 'License verification', 'Inspection tracking']
     },
     {
       icon: Users,
-      title: 'Customer Management',
-      description: 'Build lasting relationships with comprehensive customer insights',
-      benefits: ['Customer profiles', 'Purchase history', 'Loyalty programs']
+      title: 'Family Support',
+      description: 'Connect families with the right care through expert guidance',
+      benefits: ['Care assessment tools', 'Family communication portal', 'Personalized matching']
     },
     {
       icon: Calendar,
-      title: 'Smart Booking System',
-      description: 'Streamline appointments with intelligent scheduling',
-      benefits: ['Automated reminders', 'No-show protection', 'Multi-service bookings']
+      title: 'Smart Care Coordination',
+      description: 'Streamline care planning and family consultations',
+      benefits: ['Virtual facility tours', 'Care plan comparisons', 'Progress tracking']
     },
     {
       icon: BarChart,
-      title: 'Advanced Analytics',
-      description: 'Make data-driven decisions with detailed business insights',
-      benefits: ['Performance metrics', 'Customer behavior', 'Growth forecasting']
+      title: 'Transparency Analytics',
+      description: 'Data-driven insights for informed care decisions',
+      benefits: ['Quality metrics', 'Pricing transparency', 'Outcome tracking']
     },
     {
       icon: Target,
-      title: 'Marketing Automation',
-      description: 'Reach the right customers at the right time',
-      benefits: ['Email campaigns', 'Social media integration', 'Lead nurturing']
+      title: 'Regulatory Compliance',
+      description: 'Real-time monitoring of licensing and safety standards',
+      benefits: ['Compliance alerts', 'Inspection schedules', 'Violation tracking']
     },
     {
-      icon: Shield,
-      title: 'Trust & Safety',
-      description: 'Build credibility with verified reviews and secure transactions',
-      benefits: ['Review verification', 'Secure payments', 'Fraud protection']
+      icon: Award,
+      title: 'Certification Management',
+      description: 'Verify credentials and track facility accreditations',
+      benefits: ['License verification', 'Certification tracking', 'Staff credentials']
     }
   ];
 
-  const industryFeatures = [
+  const careTypeFeatures = [
     {
-      industry: 'Restaurants',
-      icon: '🍽️',
-      features: ['Online menu management', 'Table reservations', 'Food delivery integration', 'Special dietary filters']
+      careType: 'Assisted Living',
+      icon: '🏠',
+      features: ['Daily living assistance tracking', 'Medication management', 'Activity programs', 'Family communication']
     },
     {
-      industry: 'Beauty & Wellness',
-      icon: '💅',
-      features: ['Service duration tracking', 'Staff scheduling', 'Product recommendations', 'Before/after galleries']
+      careType: 'Memory Care',
+      icon: '🧠',
+      features: ['Specialized dementia programs', 'Secure environments', 'Cognitive assessments', 'Family support groups']
     },
     {
-      industry: 'Healthcare',
+      careType: 'Skilled Nursing',
       icon: '🏥',
-      features: ['Practitioner credentials', 'Insurance verification', 'Appointment types', 'Medical forms']
+      features: ['24/7 medical monitoring', 'Rehabilitation services', 'Nurse-to-patient ratios', 'Specialty care units']
     },
     {
-      industry: 'Fitness',
-      icon: '💪',
-      features: ['Class schedules', 'Trainer profiles', 'Equipment tracking', 'Progress monitoring']
+      careType: 'Independent Living',
+      icon: '🌟',
+      features: ['Maintenance-free living', 'Social activities', 'Emergency response', 'Transportation services']
     },
     {
-      industry: 'Retail',
-      icon: '🛍️',
-      features: ['Inventory management', 'Product catalogs', 'Click & collect', 'Size guides']
+      careType: 'Home Health',
+      icon: '🏡',
+      features: ['In-home medical care', 'Personal care assistance', 'Therapy services', 'Family coordination']
     },
     {
-      industry: 'Automotive',
-      icon: '🚗',
-      features: ['Service tracking', 'Parts ordering', 'Warranty management', 'Vehicle history']
+      careType: 'Hospice Care',
+      icon: '💙',
+      features: ['Comfort-focused care', 'Pain management', 'Emotional support', 'Family counseling']
     }
   ];
 
@@ -87,10 +87,10 @@ const CommercialFeatures = () => {
         {/* Main Features Section */}
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Powerful Features for Business Growth
+            Comprehensive Care Management Platform
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Everything you need to manage, grow, and optimize your business in one comprehensive platform
+            Everything families need to find trusted senior care with transparency, quality assurance, and peace of mind
           </p>
         </div>
 
@@ -122,22 +122,22 @@ const CommercialFeatures = () => {
         <div className="bg-gray-50 rounded-2xl p-8 mb-16">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Industry-Specific Solutions
+              Care Type Specific Solutions
             </h3>
             <p className="text-gray-600">
-              Tailored features for different business categories
+              Specialized features for different types of senior care
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industryFeatures.map((industry, index) => (
+            {careTypeFeatures.map((careType, index) => (
               <div key={index} className="bg-white rounded-lg p-6">
                 <div className="flex items-center mb-4">
-                  <span className="text-3xl mr-3">{industry.icon}</span>
-                  <h4 className="text-lg font-semibold">{industry.industry}</h4>
+                  <span className="text-3xl mr-3">{careType.icon}</span>
+                  <h4 className="text-lg font-semibold">{careType.careType}</h4>
                 </div>
                 <ul className="space-y-2">
-                  {industry.features.map((feature, featureIndex) => (
+                  {careType.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-sm text-gray-700">
                       <div className="w-1.5 h-1.5 bg-brand-500 rounded-full mr-2"></div>
                       {feature}
@@ -154,28 +154,28 @@ const CommercialFeatures = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold mb-4">
-                Proven Return on Investment
+                Proven Family Satisfaction
               </h3>
               <p className="text-brand-100 mb-6">
-                Our platform delivers measurable results for businesses of all sizes
+                Our platform delivers peace of mind for families and quality care outcomes
               </p>
               
               <div className="grid grid-cols-2 gap-6 mb-6">
                 <div>
-                  <div className="text-3xl font-bold text-yellow-300">40%</div>
-                  <div className="text-sm text-brand-200">Average increase in customers</div>
+                  <div className="text-3xl font-bold text-yellow-300">96%</div>
+                  <div className="text-sm text-brand-200">Family satisfaction rate</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-yellow-300">65%</div>
-                  <div className="text-sm text-brand-200">Boost in online bookings</div>
+                  <div className="text-3xl font-bold text-yellow-300">78%</div>
+                  <div className="text-sm text-brand-200">Faster care placement</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-yellow-300">3x</div>
-                  <div className="text-sm text-brand-200">More online visibility</div>
+                  <div className="text-3xl font-bold text-yellow-300">4.8</div>
+                  <div className="text-sm text-brand-200">Average facility quality score</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-yellow-300">92%</div>
-                  <div className="text-sm text-brand-200">Customer satisfaction rate</div>
+                  <div className="text-3xl font-bold text-yellow-300">50K+</div>
+                  <div className="text-sm text-brand-200">Families served annually</div>
                 </div>
               </div>
               
@@ -191,7 +191,7 @@ const CommercialFeatures = () => {
                   <span className="font-medium">Industry Recognition</span>
                 </div>
                 <p className="text-sm text-brand-100">
-                  Winner of "Best Business Platform 2024" by Business Tech Awards
+                  Winner of "Best Senior Care Platform 2024" by Healthcare Excellence Awards
                 </p>
               </div>
               
@@ -201,7 +201,7 @@ const CommercialFeatures = () => {
                   <span className="font-medium">Global Reach</span>
                 </div>
                 <p className="text-sm text-brand-100">
-                  Serving over 50,000 businesses across 25+ countries
+                  Serving over 10,000 care facilities across 48+ states
                 </p>
               </div>
               
@@ -211,7 +211,7 @@ const CommercialFeatures = () => {
                   <span className="font-medium">Customer Success</span>
                 </div>
                 <p className="text-sm text-brand-100">
-                  4.9/5 average rating from business owners worldwide
+                  4.9/5 average rating from families and care providers
                 </p>
               </div>
             </div>

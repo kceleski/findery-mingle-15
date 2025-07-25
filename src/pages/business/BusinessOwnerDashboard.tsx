@@ -16,11 +16,11 @@ const BusinessOwnerDashboard = () => {
   const [totalReviews, setTotalReviews] = useState(89);
   const [monthlyBookings, setMonthlyBookings] = useState(156);
 
-  const businessStats = [
+  const facilityStats = [
     { title: 'Profile Views', value: profileViews, icon: Eye, trend: '+12%' },
-    { title: 'Total Reviews', value: totalReviews, icon: Star, trend: '+8%' },
-    { title: 'This Month Bookings', value: monthlyBookings, icon: Calendar, trend: '+25%' },
-    { title: 'Revenue', value: '$4,250', icon: DollarSign, trend: '+18%' }
+    { title: 'Family Reviews', value: totalReviews, icon: Star, trend: '+8%' },
+    { title: 'Care Consultations', value: monthlyBookings, icon: Calendar, trend: '+25%' },
+    { title: 'Quality Score', value: '4.6/5', icon: TrendingUp, trend: '+0.2' }
   ];
 
   const recentReviews = [
@@ -29,10 +29,10 @@ const BusinessOwnerDashboard = () => {
     { customer: 'Lisa Brown', rating: 5, comment: 'Professional and friendly staff.', date: '1 week ago' }
   ];
 
-  const upcomingBookings = [
-    { customer: 'John Doe', service: 'Hair Cut', time: '10:00 AM', date: 'Today' },
-    { customer: 'Emma Wilson', service: 'Facial Treatment', time: '2:30 PM', date: 'Today' },
-    { customer: 'David Smith', service: 'Massage', time: '11:00 AM', date: 'Tomorrow' }
+  const upcomingConsultations = [
+    { family: 'Johnson Family', service: 'Facility Tour', time: '10:00 AM', date: 'Today' },
+    { family: 'Wilson Family', service: 'Care Assessment', time: '2:30 PM', date: 'Today' },
+    { family: 'Smith Family', service: 'Move-in Consultation', time: '11:00 AM', date: 'Tomorrow' }
   ];
 
   return (
@@ -42,8 +42,8 @@ const BusinessOwnerDashboard = () => {
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Business Dashboard</h1>
-                <p className="text-gray-600">Manage your business profile and bookings</p>
+                <h1 className="text-2xl font-bold text-gray-900">Care Facility Dashboard</h1>
+                <p className="text-gray-600">Manage your facility profile and resident services</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Button variant="outline" size="sm">
@@ -63,16 +63,16 @@ const BusinessOwnerDashboard = () => {
           <Tabs defaultValue="overview" className="space-y-6">
             <TabsList className="bg-white">
               <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="bookings">Bookings</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews</TabsTrigger>
-              <TabsTrigger value="profile">Profile</TabsTrigger>
-              <TabsTrigger value="services">Services</TabsTrigger>
+              <TabsTrigger value="bookings">Consultations</TabsTrigger>
+              <TabsTrigger value="reviews">Family Reviews</TabsTrigger>
+              <TabsTrigger value="profile">Facility Profile</TabsTrigger>
+              <TabsTrigger value="services">Care Services</TabsTrigger>
               <TabsTrigger value="analytics">Analytics</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview" className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {businessStats.map((stat, index) => (
+                {facilityStats.map((stat, index) => (
                   <Card key={index}>
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between">
@@ -125,25 +125,25 @@ const BusinessOwnerDashboard = () => {
 
                 <Card>
                   <CardHeader>
-                    <CardTitle>Upcoming Bookings</CardTitle>
+                    <CardTitle>Upcoming Consultations</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {upcomingBookings.map((booking, index) => (
+                      {upcomingConsultations.map((consultation, index) => (
                         <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                           <div>
-                            <p className="font-medium">{booking.customer}</p>
-                            <p className="text-sm text-gray-600">{booking.service}</p>
+                            <p className="font-medium">{consultation.family}</p>
+                            <p className="text-sm text-gray-600">{consultation.service}</p>
                           </div>
                           <div className="text-right">
-                            <p className="font-medium">{booking.time}</p>
-                            <p className="text-sm text-gray-600">{booking.date}</p>
+                            <p className="font-medium">{consultation.time}</p>
+                            <p className="text-sm text-gray-600">{consultation.date}</p>
                           </div>
                         </div>
                       ))}
                     </div>
                     <Button variant="outline" className="w-full mt-4">
-                      Manage Bookings
+                      Manage Schedule
                     </Button>
                   </CardContent>
                 </Card>
@@ -153,26 +153,26 @@ const BusinessOwnerDashboard = () => {
             <TabsContent value="bookings" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Booking Management</CardTitle>
+                  <CardTitle>Consultation Management</CardTitle>
                   <div className="flex space-x-2">
                     <Button size="sm">Add Availability</Button>
-                    <Button variant="outline" size="sm">Export Bookings</Button>
+                    <Button variant="outline" size="sm">Export Schedule</Button>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
-                    {upcomingBookings.map((booking, index) => (
+                    {upcomingConsultations.map((consultation, index) => (
                       <div key={index} className="flex items-center justify-between p-4 border rounded-lg">
                         <div className="flex items-center space-x-4">
                           <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center">
                             <Calendar className="h-6 w-6 text-gray-600" />
                           </div>
                           <div>
-                            <p className="font-medium">{booking.customer}</p>
-                            <p className="text-sm text-gray-600">{booking.service}</p>
+                            <p className="font-medium">{consultation.family}</p>
+                            <p className="text-sm text-gray-600">{consultation.service}</p>
                             <div className="flex items-center space-x-2 mt-1">
                               <Clock className="h-4 w-4 text-gray-400" />
-                              <span className="text-sm">{booking.time} - {booking.date}</span>
+                              <span className="text-sm">{consultation.time} - {consultation.date}</span>
                             </div>
                           </div>
                         </div>
@@ -191,8 +191,8 @@ const BusinessOwnerDashboard = () => {
             <TabsContent value="profile" className="space-y-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Business Profile</CardTitle>
-                  <p className="text-gray-600">Update your business information and settings</p>
+                  <CardTitle>Facility Profile</CardTitle>
+                  <p className="text-gray-600">Update your facility information and care services</p>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -200,16 +200,18 @@ const BusinessOwnerDashboard = () => {
                       <h3 className="font-medium mb-3">Basic Information</h3>
                       <div className="space-y-3">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Business Name</label>
-                          <input type="text" className="w-full p-2 border rounded-md" defaultValue="Zen Spa & Wellness" />
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Facility Name</label>
+                          <input type="text" className="w-full p-2 border rounded-md" defaultValue="Sunrise Senior Living" />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Care Type</label>
                           <select className="w-full p-2 border rounded-md">
-                            <option>Beauty & Wellness</option>
-                            <option>Restaurant</option>
-                            <option>Healthcare</option>
-                            <option>Fitness</option>
+                            <option>Assisted Living</option>
+                            <option>Memory Care</option>
+                            <option>Skilled Nursing</option>
+                            <option>Independent Living</option>
+                            <option>Home Health</option>
+                            <option>Hospice Care</option>
                           </select>
                         </div>
                         <div>

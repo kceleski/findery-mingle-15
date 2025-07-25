@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-300 text-sm">
-              Discover local businesses in your area. Connect with your community.
+              Find trusted senior care facilities. Quality, transparency, and peace of mind for families.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-brand-400 transition-colors">
@@ -52,22 +52,22 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-4">Categories</h3>
+            <h3 className="font-semibold text-lg mb-4">Care Types</h3>
             <ul className="space-y-2 text-sm text-gray-300">
               <li>
-                <Link to="/category/restaurants" className="hover:text-brand-400 transition-colors">Restaurants</Link>
+                <Link to="/category/assisted-living" className="hover:text-brand-400 transition-colors">Assisted Living</Link>
               </li>
               <li>
-                <Link to="/category/shopping" className="hover:text-brand-400 transition-colors">Shopping</Link>
+                <Link to="/category/memory-care" className="hover:text-brand-400 transition-colors">Memory Care</Link>
               </li>
               <li>
-                <Link to="/category/services" className="hover:text-brand-400 transition-colors">Services</Link>
+                <Link to="/category/skilled-nursing" className="hover:text-brand-400 transition-colors">Skilled Nursing</Link>
               </li>
               <li>
-                <Link to="/category/health" className="hover:text-brand-400 transition-colors">Health & Wellness</Link>
+                <Link to="/category/home-health" className="hover:text-brand-400 transition-colors">Home Health</Link>
               </li>
               <li>
-                <Link to="/categories" className="text-brand-400 hover:underline transition-colors">View All Categories</Link>
+                <Link to="/categories" className="text-brand-400 hover:underline transition-colors">View All Care Types</Link>
               </li>
             </ul>
           </div>

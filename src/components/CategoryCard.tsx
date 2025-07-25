@@ -2,8 +2,8 @@
 import React from 'react';
 import { Category } from '@/types';
 import { 
-  Utensils, ShoppingBag, Briefcase, Heart, 
-  Scissors, Dumbbell, GraduationCap, Film 
+  Home, Brain, Stethoscope, Heart, 
+  Users, Shield, HandHeart, Bed 
 } from 'lucide-react';
 import { useBusinessContext } from '@/context/BusinessContext';
 
@@ -20,24 +20,24 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
 
   const getIcon = () => {
     switch (category.icon) {
-      case 'utensils':
-        return <Utensils className="h-8 w-8 mb-3" />;
-      case 'shopping-bag':
-        return <ShoppingBag className="h-8 w-8 mb-3" />;
-      case 'briefcase':
-        return <Briefcase className="h-8 w-8 mb-3" />;
+      case 'home':
+        return <Home className="h-8 w-8 mb-3" />;
+      case 'brain':
+        return <Brain className="h-8 w-8 mb-3" />;
+      case 'stethoscope':
+        return <Stethoscope className="h-8 w-8 mb-3" />;
       case 'heart':
         return <Heart className="h-8 w-8 mb-3" />;
-      case 'scissors':
-        return <Scissors className="h-8 w-8 mb-3" />;
-      case 'dumbbell':
-        return <Dumbbell className="h-8 w-8 mb-3" />;
-      case 'graduation-cap':
-        return <GraduationCap className="h-8 w-8 mb-3" />;
-      case 'film':
-        return <Film className="h-8 w-8 mb-3" />;
+      case 'users':
+        return <Users className="h-8 w-8 mb-3" />;
+      case 'shield':
+        return <Shield className="h-8 w-8 mb-3" />;
+      case 'hand-heart':
+        return <HandHeart className="h-8 w-8 mb-3" />;
+      case 'bed':
+        return <Bed className="h-8 w-8 mb-3" />;
       default:
-        return <Briefcase className="h-8 w-8 mb-3" />;
+        return <Home className="h-8 w-8 mb-3" />;
     }
   };
 
@@ -50,7 +50,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
         {getIcon()}
       </div>
       <h3 className="font-medium text-gray-800">{category.name}</h3>
-      <span className="text-sm text-gray-500 mt-1">{category.count} places</span>
+      <span className="text-sm text-gray-500 mt-1">{category.count} facilities</span>
     </button>
   );
 };
